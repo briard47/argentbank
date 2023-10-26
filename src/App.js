@@ -1,24 +1,20 @@
-import logo from './logo.svg';
 import './App.css';
+import{Routes, Route} from "react-router-dom"
+import store from './store'
+import { Provider } from 'react-redux'
+import Home from "./pages/Home/Home"
+import Login from "./pages/LoginPage/LoginPage"
+import UserProfile from './pages/UserProfile/UserProfile';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+    <Routes>
+      <Route path="/" element={<Home />}/>
+      <Route path="/login" element={<Login />}/>
+      <Route path="/user" element={<UserProfile/>}/>
+    </Routes>
+    </Provider>
   );
 }
 

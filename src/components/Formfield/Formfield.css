@@ -1,0 +1,16 @@
+.input-wrapper {
+    display: flex;
+   
+    text-align: left;
+    margin-bottom: 1rem;
+}
+  
+.input-wrapper label {
+    font-weight: bold;
+}
+  
+.input-wrapper input {
+    padding: 5px;
+    font-size: 1.2rem;
+}
+  

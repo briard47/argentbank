@@ -1,0 +1,64 @@
+.user-profile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 84vh;
+    padding-top: 15px;
+}
+
+.header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin:15px;
+}
+
+.header .button{
+    width: fit-content;
+}
+
+p{
+    font-size: 30px;
+    margin:2px;
+    font-weight: bold;
+}
+
+.wht-text{
+    color: white;
+}
+
+.username-edit{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding:10px;
+    border-radius: 20px ;
+}
+
+.form .input-wrapper{
+    flex-direction: row;
+    gap:4px;
+}
+
+.form label{
+    align-self: center;
+}
+.edit-buttons{
+    display: flex;
+    justify-content: space-between;
+}
+
+.edit-buttons .button{
+    width: fit-content;
+    padding-left: 50px;
+    padding-right:50px;
+}
+
+.hidden{
+    visibility: collapse;
+}
+
+.account-balance{
+    margin:25px;
+    width:80%;
+}
