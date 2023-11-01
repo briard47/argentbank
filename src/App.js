@@ -6,14 +6,18 @@ import UserProfile from './pages/UserProfile/UserProfile';
 import ProtectedRoute from './routing/ProtectedRoute';
 import { useDispatch, useSelector } from 'react-redux';
 import { setUser } from './slice/UserSlice';
+import { useEffect } from 'react';
 
 
 function App() {
   const auth=useSelector(state=>state.auth.auth);
-    const dispatch = useDispatch()
+  const dispatch = useDispatch()
+  useEffect(()=>{
     if (auth!==null){
-        dispatch(setUser())
+      dispatch(setUser())
     }else{}
+  }, [auth, dispatch])
+    
   return ( 
     <Routes>
       <Route path="/" element={<Home />}/>
