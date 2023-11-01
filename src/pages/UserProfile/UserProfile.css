@@ -17,7 +17,7 @@
     width: fit-content;
 }
 
-p{
+.header p{
     font-size: 30px;
     margin:2px;
     font-weight: bold;
@@ -43,6 +43,10 @@ p{
 .form label{
     align-self: center;
 }
+.form :disabled{
+    background-color: lightgrey;
+}
+
 .edit-buttons{
     display: flex;
     justify-content: space-between;
@@ -56,6 +60,10 @@ p{
 
 .hidden{
     visibility: collapse;
+}
+
+.visible{
+    visibility: visible;
 }
 
 .account-balance{
