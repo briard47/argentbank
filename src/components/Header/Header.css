@@ -6,17 +6,21 @@
     padding: 5px 20px;
   }
   
-  .main-nav a {
+  .main-nav a, button {
     text-decoration: none;
     font-weight: bold;
     color: #2c3e50;
+    background-color: white;
+    border:none
+    
   }
   
-  .main-nav a.router-link-exact-active {
-    color: #42b983;
-  }
-  
+.main-nav button:hover{
+     text-decoration: underline;
+}
+
   .main-nav-item {
+    font-size: 18px;
     margin-right: 0.5rem;
     display:flex;
     gap:5px;
@@ -27,6 +31,10 @@
   align-self: center;
   width: 20px;
   height:20px;
+  }
+
+  .main-nav-item span{
+    padding-top: 2px;
   }
 
   .main-nav-item:hover p{
