@@ -20,6 +20,7 @@
     margin-right: 0.5rem;
     display:flex;
     gap:5px;
+    align-items: center;
   }
   
   .main-nav-item img{
@@ -28,7 +29,7 @@
   height:20px;
   }
 
-  .main-nav-item:hover {
+  .main-nav-item:hover p{
     text-decoration: underline;
   }
   

@@ -2,44 +2,74 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from 'axios'
 
 
-export const auth=createAsyncThunk(
-    'auth/auth',
-    async(auth)=>{
-        const request=await axios.post('http://localhost:3001/api/v1/user/login', auth)
+export const authentlast=createAsyncThunk(
+    'auth/authentlast',
+    async(authent)=>{
+        const request=await axios.post('http://localhost:3001/api/v1/user/login', authent)
         const response = await request.data.body.token;
-        localStorage.setItem('token', JSON.stringify(response))
+        localStorage.setItem('token', response);
         return response
     }
 );
-
+export const authentshort=createAsyncThunk(
+    'auth/authentshort',
+    async(authent)=>{
+        const request=await axios.post('http://localhost:3001/api/v1/user/login', authent)
+        const response = await request.data.body.token;
+        return response
+    }
+);
 
 const authSlice = createSlice({
     name: 'auth',
     initialState:{
         loading:false,
-        user:null,
+        auth:localStorage.getItem('token'),
         error:null
+    },
+    reducers:{
+        logout: (state)=>{
+            localStorage.removeItem('token')
+            state.loading=false
+            state.auth=null
+            state.error=null
+        }
     },
     extraReducers:(builder)=>{
         builder
-        .addCase(auth.pending,(state)=>{
+        .addCase(authentlast.pending,(state)=>{
             state.loading = true;
-            state.user = null;
+            state.auth = null;
             state.error = null;
         })
-        .addCase(auth.fulfilled,(state, action)=>{
+        .addCase(authentlast.fulfilled,(state, action)=>{
             state.loading = false;
-            state.user = action.payload;
+            state.auth= action.payload;
             state.error = null;
         })
-        .addCase(auth.rejected, (state, action)=>{
+        .addCase(authentlast.rejected, (state, action)=>{
             state.loading = false;
-            state.user = null;
+            state.auth = null;
+            state.error = action.error.message;
+        })
+        .addCase(authentshort.pending,(state)=>{
+            state.loading = true;
+            state.auth = null;
+            state.error = null;
+        })
+        .addCase(authentshort.fulfilled,(state, action)=>{
+            state.loading = false;
+            state.auth= action.payload;
+            state.error = null;
+        })
+        .addCase(authentshort.rejected, (state, action)=>{
+            state.loading = false;
+            state.auth = null;
             state.error = action.error.message;
         })
     }
 
 })
-
+export const{logout}=authSlice.actions
 export default authSlice.reducer
 
