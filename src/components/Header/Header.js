@@ -43,7 +43,8 @@ const loggingout=()=>{
         <Link to= '/login'>
             <Button className="main-nav-item" onClick={loggingout}>< img src ={signOut} alt='log out icon'/> Sign out</Button>
         </Link>
-        </div>):(<><Link to= '/login'>
+        </div>):
+        (<><Link to= '/login'>
             <div className="main-nav-item" >
                 < img src ={UserLogo} alt='profile icon'/>
                 <p>Sign In</p>

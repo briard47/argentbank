@@ -16,22 +16,35 @@ export const authentshort=createAsyncThunk(
     async(authent)=>{
         const request=await axios.post('http://localhost:3001/api/v1/user/login', authent)
         const response = await request.data.body.token;
+        sessionStorage.setItem('token', response);
         return response
     }
 );
+function setAuth(){
+    let sessionToken=sessionStorage.getItem('token');
+    let localToken =localStorage.getItem('token');
+    if (sessionToken!== null){
+        return sessionToken
+    }
+    else{
+        return localToken
+    }
+}
+
 
 const authSlice = createSlice({
     name: 'auth',
     initialState:{
         loading:false,
-        auth:localStorage.getItem('token'),
+        auth:setAuth(),
         error:null
     },
     reducers:{
         logout: (state)=>{
-            localStorage.removeItem('token')
-            state.loading=false
-            state.auth=null
+            localStorage.removeItem('token');
+            sessionStorage.removeItem('token');
+            state.loading=false;
+            state.auth=null;
             state.error=null
         }
     },

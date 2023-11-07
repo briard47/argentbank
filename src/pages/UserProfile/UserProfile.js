@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
-import Header from '../../components/Header/Header'
-import Footer from '../../components/Footer/Footer'
+
 import Formfield from '../../components/Formfield/Formfield'
 import Button from '../../components/Button/Button'
 import AccountBox from '../../components/AccountBox/AccountBox'
@@ -33,7 +32,7 @@ const changeUsername=(e)=>{
     })
 }
     return(<div>
-        <Header/>
+        
         <section className="bg-dark user-profile">
             <div className={isEditing ? "wht-text header hidden" :"wht-text header"}>
                 <p>Welcome Back</p>
@@ -45,7 +44,7 @@ const changeUsername=(e)=>{
             <div className={isEditing ? "username-edit " :"username-edit hidden"}>
                 <h2 >Edit user Info</h2>
                 <form className="form">                   
-                    <Formfield type="text" label="User Name :" id="username" placeholder={username} 
+                    <Formfield type="text" label="User Name :" id="username" placeholder={username} required={true}
                     value={newName} onChange={(e)=>setNewName(e.target.value)}/>
                     <Formfield type="text" label="First Name :" id="firstname" placeholder={firstname} disabled={true} />
                     <Formfield type="text" label="Last Name :" id="lastname" placeholder={lastname}disabled={true}/>
@@ -65,6 +64,5 @@ const changeUsername=(e)=>{
                 <AccountBox/>
             </div>
         </section>
-        <Footer />
     </div> )
 }

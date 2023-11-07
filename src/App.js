@@ -7,6 +7,8 @@ import ProtectedRoute from './routing/ProtectedRoute';
 import { useDispatch, useSelector } from 'react-redux';
 import { setUser } from './slice/UserSlice';
 import { useEffect } from 'react';
+import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
 
 
 function App() {
@@ -19,6 +21,8 @@ function App() {
   }, [auth, dispatch])
     
   return ( 
+    <>
+    <Header/>
     <Routes>
       <Route path="/" element={<Home />}/>
       <Route path="/login" element={<Login />}/>
@@ -26,7 +30,8 @@ function App() {
             <Route path='/profile' element={<UserProfile />} />
           </Route>
     </Routes>
-
+    <Footer/>
+    </>
   );
 }
 

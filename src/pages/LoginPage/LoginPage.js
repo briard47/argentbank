@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
-import Header from '../../components/Header/Header'
-import Footer from '../../components/Footer/Footer'
+
 import Formfield from '../../components/Formfield/Formfield'
 import Button from '../../components/Button/Button'
 import UserLogo from '../../assets/circle-user-solid.svg'
@@ -51,7 +50,6 @@ else dispatch(authentshort(userLogin)).then((result)=>{
 }
     return(
         <div>
-            <Header/>
                 <section className='bg-dark login-page'>
                     <div className="sign-in-content">
                     <img className='login-logo'src={UserLogo} alt='Logo User'/>
@@ -67,11 +65,10 @@ else dispatch(authentshort(userLogin)).then((result)=>{
                 <Button type="submit" >
                   {loading?'loading': 'Sign in'}  
                 </Button>
-                {error&&(<div role='alert'> erreur</div>)}
+                {error&&(<div className='error' role='alert'> Invalid Email or Password</div>)}
                   </form> 
                     </div>
                 </section>
-            <Footer />
         </div>
     )
 }

@@ -25,6 +25,6 @@ AccountBox.propTypes = {
   AccountBox.defaultProps = {
     title: "ArgentBank Checking(x3448)",
     amount: "$48,098.43",
-    descriptionn: "Available balance"
+    description: "Available balance"
   }
 export default AccountBox

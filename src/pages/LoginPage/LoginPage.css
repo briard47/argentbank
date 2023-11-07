@@ -1,7 +1,6 @@
 .login-page{
   display:flex;
   flex-direction: column;
- 
   min-height: 84vh;
 }
 
@@ -35,4 +34,12 @@
 
 .input-remember label {
   margin-left: 0.25rem;
+}
+
+
+.error{
+  background-color:rgb(233, 127, 127);
+  margin-top: 20px;
+  padding:10px;
+  font-weight:bold
 }

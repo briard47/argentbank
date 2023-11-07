@@ -33,3 +33,15 @@ body {
   width: 1px !important;
   white-space: nowrap !important; /* 3 */
 }
+
+.unauthorized{
+  color: white;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 84vh;
+}
+
+.unauthorized a{
+  color: lightblue
+}

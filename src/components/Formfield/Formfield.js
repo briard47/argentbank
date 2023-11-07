@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from "prop-types"
 import './Formfield.css'
 
-const Formfield = ({label, type, placeholder, id, value, onChange, disabled })=>{
+const Formfield = ({label, type, placeholder, id, value, onChange, disabled, required })=>{
     return(
         <div className="input-wrapper">
         <label htmlFor={id}>{label}</label>
@@ -12,6 +12,7 @@ const Formfield = ({label, type, placeholder, id, value, onChange, disabled })=>
         value={value}
         onChange={onChange}
         disabled={disabled}
+        required={required}
         />
         </div>
     )
@@ -25,6 +26,7 @@ Formfield.propTypes={
     value:PropTypes.string,
     onChange:PropTypes.func,
     disabled: PropTypes.bool,
+    required: PropTypes.bool,
 }
 
 Formfield.defaultProps={
@@ -35,6 +37,7 @@ Formfield.defaultProps={
     value:"",
     onChange:()=>{},
     disabled: false,
+    required: false,
 }
 
 export default Formfield
